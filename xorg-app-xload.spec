@@ -1,17 +1,18 @@
 Summary:	xload application
 Summary(pl):	Aplikacja xload
 Name:		xorg-app-xload
-Version:	0.99.2
+Version:	1.0.1
 Release:	0.1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/app/xload-%{version}.tar.bz2
-# Source0-md5:	c95cc92f24d7c654f6c572c4b4fe3e2c
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/app/xload-%{version}.tar.bz2
+# Source0-md5:	ba013813f9c21eb015559466f8d02a44
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXt-devel >= 1.0.0
 BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog
+%doc COPYING ChangeLog
 %attr(755,root,root) %{_bindir}/*
-%{_libdir}/X11/app-defaults/*
+%{_datadir}/X11/app-defaults/*
 %{_mandir}/man1/*.1x*
