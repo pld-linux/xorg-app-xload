@@ -7,6 +7,8 @@ License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/app/xload-%{version}.tar.bz2
 # Source0-md5:	ba013813f9c21eb015559466f8d02a44
+Source1:	xload.desktop
+Source2:	xload.png
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -41,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/xload.desktop
+install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/xload.png
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -49,4 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/X11/app-defaults/*
+%{_desktopdir}/xload.desktop
+%{_pixmapsdir}/xload.png
 %{_mandir}/man1/*.1x*
