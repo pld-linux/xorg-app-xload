@@ -2,13 +2,14 @@ Summary:	xload application
 Summary(pl):	Aplikacja xload
 Name:		xorg-app-xload
 Version:	1.0.1
-Release:	0.1
+Release:	1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/app/xload-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/app/xload-%{version}.tar.bz2
 # Source0-md5:	ba013813f9c21eb015559466f8d02a44
 Source1:	xload.desktop
 Source2:	xload.png
+Source3:	xload.1x.it
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -45,6 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/xload.desktop
 install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/xload.png
+install -D %{SOURCE3} $RPM_BUILD_ROOT%{_mandir}/it/man1/xload.1x
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,8 +54,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog
-%attr(755,root,root) %{_bindir}/*
-%{_datadir}/X11/app-defaults/*
+%attr(755,root,root) %{_bindir}/xload
+%{_datadir}/X11/app-defaults/XLoad
 %{_desktopdir}/xload.desktop
 %{_pixmapsdir}/xload.png
-%{_mandir}/man1/*.1x*
+%{_mandir}/man1/xload.1x*
+%lang(it) %{_mandir}/it/man1/xload.1x*
