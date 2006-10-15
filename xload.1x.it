@@ -1,0 +1,111 @@
+.\"
+.\" Traduzione in italiano di Giovanni Bortolozzo <borto@dei.unipd.it>
+.\" Settembre 1996
+.\"
+.\" Aggiornamento alla Release 6 di 
+.\" Ottavio Rizzo <rizzo@maths.univ-rennes1.fr>, novembre 1998
+.\" " for hilit19
+.TH XLOAD 1 "Release 6" "X Version 11"
+.SH NOME
+xload \- mostra in una finestra X il carico medio del sistema
+.SH SINTASSI
+.ta 6n
+\fBxload\fP	[-\fItoolkitoption\fP ...] [-scale \fIintero\fP] [-update \fIsecondi\fP] [-hl \fIcolore\fP] [-highlight \fIcolore\fP] [-jumpscroll \fIpixel\fP] [-label \fIstringa\fP] [-nolabel] [-lights]
+.SH DESCRIZIONE
+Il programma 
+.I xload 
+mostra e aggiorna periodicamente un istogramma del carico medio del sistema.
+.SH OPZIONI
+.PP
+.I Xload
+accetta in riga di comando tutte le opzioni standard dell'X Toolkit
+(si veda \fIX(1)\fP). Non è importante l'ordine delle opzioni. Inoltre
+\fIxload\fP accetta anche le seguenti opzioni:
+.PP
+.TP 8
+.B \-hl \fIcolore\fP o \-highlight \fIcolore\fP
+Questa opzione specifica il colore delle righe della scala.
+.TP 8
+.B \-jumpscroll \fPnumero di pixel\fP
+Il numero di pixel di cui spostare il grafico a sinistra quando questi
+raggiunge l'estremo destro della finestra. Il valore di default è metà
+della larghezza della finestra corrente. Uno scroll progressivo può
+essere ottenuto settandolo a 1.
+.TP 8
+.B \-label \fIstringa\fP
+La stringa da mettere nell'etichetta sopra il grafico.
+.TP 8
+.B \-nolabel
+Se è specificata questa opzione in riga di comando allora non sarà
+mostrata nessuna etichetta sopra il grafico.
+.TP 8
+.B \-lights
+Quando specificata, questa opzione fa si che
+.I xload
+usi i led della tastiera per mostrare il carico medio corrente; per un
+carico medio di \fIn\fP, xload accende i primi \fIn\fP led della
+tastiera. Questa opzione disabilita la normale schermata in finestra.
+.TP 8
+.B \-scale \fIintero\fP
+Questa opzione specifica il minimo numero di divisioni nell'istogramma,
+dove una divisione rappresenta un'unità di carico medio. Se il carico
+supera questo numero, \fIxload\fP creerà ancora divisioni, ma non ne
+userà mai meno di questo numero. Il default è 1.
+.PP
+.TP 8
+.B \-update \fIsecondi\fP
+Questa opzione specifica l'intervallo in secondi dopo il quale
+\fIxload\fP aggiorna la sua finestra. Il minimo tempo ammesso tra due
+aggiornamenti è un secondo. Il default è 10.
+.SH RISORSE
+In aggiunta alle risorse disponibile per ognuno dei widget usati da 
+\fIxload\fP c'è una risorsa definita dall'applicazione stessa.
+.TP 8
+.B showLabel (\fPclass\fB Boolean)
+Se False allora non sarà mostrata alcuna etichetta.
+.SH WIDGET
+Per poter specificare le risorse, è utile conoscere la gerarchia dei
+widget che compone \fIxload\fR. Nella notazione seguente,
+l'identazione indica la struttura gerarchica. Per primo è dato il nome
+della classe del widget, seguito dal nome dell'istanza del widget.
+.sp
+.nf
+.ta .5i 1.0i 1.5i 2.0i
+XLoad  xload
+	Paned  paned
+		Label  label
+		StripChart  load
+.fi
+.sp
+.SH AMBIENTE
+.PP
+.TP 8
+.B DISPLAY
+per sapere l'host di default e il numero dello schermo.
+.TP 8
+.B XENVIRONMENT
+per sapere il nome del file delle risorse che ridefinisce la risorse
+globali salvate nella proprietà RESOURCE_MANAGER.
+.SH FILE
+<XRoot>/lib/X11/app-defaults/XLoad - specifica le risorse richieste
+.SH VEDERE ANCHE
+X(1), xrdb(1), mem(4), Athena StripChart Widget.
+.SH BACHI
+Questo programma richiede l'abilità di aprire e leggere il file
+speciale del sistema \fI/dev/kmem\fP.  I siti che non permettono
+l'accesso generale a questo file dovrebbero far appartenere
+\fIxload\fP allo stesso gruppo di \fI/dev/kmem\fP e abilitare il
+flag di permesso \fIset group id\fP.
+.PP
+La lettura di /dev/kmem è intrinsecamente non portabile. Perciò, la
+routine usata per leggerlo (get_load.c) deve essere portata su ogni
+nuovo sistema operativo.
+.SH COPYRIGHT
+Copyright ([\d,\s]*) X Consortium
+.br
+Si veda \fIX(1)\fP per l'enunciazione completa dei diritti e dei permessi.
+.SH AUTORI
+K. Shane Hartman (MIT-LCS) e Stuart A. Malone (MIT-LCS);
+.br
+con caratteristiche aggiunte da Jim Gettys (MIT-Athena), Bob Scheifler
+(MIT-LCS), Tony Della Fera (MIT-Athena), e Chris Peterson (MIT-LCS).
