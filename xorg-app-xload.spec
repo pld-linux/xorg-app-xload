@@ -1,5 +1,5 @@
 Summary:	xload application
-Summary(pl.UTF-8):   Aplikacja xload
+Summary(pl.UTF-8):	Aplikacja xload
 Name:		xorg-app-xload
 Version:	1.0.1
 Release:	1
