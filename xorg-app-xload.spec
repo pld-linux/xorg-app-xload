@@ -1,5 +1,5 @@
 Summary:	xload application
-Summary(pl):	Aplikacja xload
+Summary(pl.UTF-8):   Aplikacja xload
 Name:		xorg-app-xload
 Version:	1.0.1
 Release:	1
@@ -23,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 xload application.
 
-%description -l pl
+%description -l pl.UTF-8
 Aplikacja xload.
 
 %prep
