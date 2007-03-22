@@ -1,12 +1,12 @@
 Summary:	xload application
 Summary(pl.UTF-8):	Aplikacja xload
 Name:		xorg-app-xload
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/xload-%{version}.tar.bz2
-# Source0-md5:	ba013813f9c21eb015559466f8d02a44
+# Source0-md5:	b41ed6b4bcfc9897366c27a94d2bf150
 Source1:	xload.desktop
 Source2:	xload.png
 Source3:	xload.1x.it
