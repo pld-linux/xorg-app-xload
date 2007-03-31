@@ -1,5 +1,5 @@
-Summary:	xload application
-Summary(pl.UTF-8):	Aplikacja xload
+Summary:	xload application - system load average display for X
+Summary(pl.UTF-8):	Aplikacja xload - wyświetlanie obciążenia systemu pod X
 Name:		xorg-app-xload
 Version:	1.0.2
 Release:	1
@@ -21,10 +21,12 @@ Requires:	xorg-lib-libXt >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-xload application.
+The xload program displays a periodically updating histogram of the
+system load average.
 
 %description -l pl.UTF-8
-Aplikacja xload.
+Program xload wyświetla okresowo uaktualniany histogram średniego
+obciążenia systemu (load average).
 
 %prep
 %setup -q -n xload-%{version}
