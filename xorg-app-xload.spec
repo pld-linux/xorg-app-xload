@@ -1,23 +1,23 @@
 Summary:	xload application - system load average display for X
 Summary(pl.UTF-8):	Aplikacja xload - wyświetlanie obciążenia systemu pod X
 Name:		xorg-app-xload
-Version:	1.0.2
-Release:	3
+Version:	1.1.0
+Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/xload-%{version}.tar.bz2
-# Source0-md5:	b41ed6b4bcfc9897366c27a94d2bf150
+# Source0-md5:	5f6e8c54da51ad0e751abf54980b0ef1
 Source1:	xload.desktop
 Source2:	xload.png
 Source3:	xload.1x.it
-Patch0:		%{name}-xaw.patch
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXt-devel >= 1.0.0
-BuildRequires:	xorg-util-util-macros >= 0.99.2
+BuildRequires:	xorg-util-util-macros >= 1.8
 Requires:	xorg-lib-libXt >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,10 +31,9 @@ obciążenia systemu (load average).
 
 %prep
 %setup -q -n xload-%{version}
-%patch0 -p1
 
 %build
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -57,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog
+%doc COPYING ChangeLog README
 %attr(755,root,root) %{_bindir}/xload
 %{_datadir}/X11/app-defaults/XLoad
 %{_desktopdir}/xload.desktop
