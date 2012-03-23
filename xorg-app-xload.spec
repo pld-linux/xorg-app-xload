@@ -1,12 +1,12 @@
 Summary:	xload application - system load average display for X
 Summary(pl.UTF-8):	Aplikacja xload - wyświetlanie obciążenia systemu pod X
 Name:		xorg-app-xload
-Version:	1.1.0
+Version:	1.1.1
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/app/xload-%{version}.tar.bz2
-# Source0-md5:	5f6e8c54da51ad0e751abf54980b0ef1
+# Source0-md5:	ccc788704d66fcbe4e3e8755a600264c
 Source1:	xload.desktop
 Source2:	xload.png
 Source3:	xload.1x.it
@@ -18,6 +18,7 @@ BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXt-devel >= 1.0.0
+BuildRequires:	xorg-proto-xproto-devel >= 7.0.17
 BuildRequires:	xorg-util-util-macros >= 1.8
 Requires:	xorg-lib-libXt >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
