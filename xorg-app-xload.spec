@@ -13,7 +13,7 @@ Source3:	xload.1x.it
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXmu-devel
